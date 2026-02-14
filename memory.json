@@ -1,0 +1,194 @@
+[
+  {
+    "role": "user",
+    "content": "hey how is it going"
+  },
+  {
+    "role": "assistant",
+    "content": "Okay."
+  },
+  {
+    "role": "user",
+    "content": "hey how is it going"
+  },
+  {
+    "role": "user",
+    "content": "what is the last thing i said to you"
+  },
+  {
+    "role": "assistant",
+    "content": "You said, \u201chey how is it going\u201d?"
+  },
+  {
+    "role": "user",
+    "content": "what is the last thing i said to you"
+  },
+  {
+    "role": "user",
+    "content": "correct, did you know my favourite food is cheeseburger"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes."
+  },
+  {
+    "role": "user",
+    "content": "correct, did you know my favourite food is cheeseburger"
+  },
+  {
+    "role": "user",
+    "content": "you did? whats my favourite food"
+  },
+  {
+    "role": "assistant",
+    "content": "Pizza."
+  },
+  {
+    "role": "user",
+    "content": "you did? whats my favourite food"
+  },
+  {
+    "role": "user",
+    "content": "ok you got that one wrong lol"
+  },
+  {
+    "role": "assistant",
+    "content": "Cheese."
+  },
+  {
+    "role": "user",
+    "content": "ok you got that one wrong lol"
+  },
+  {
+    "role": "user",
+    "content": "whats the tallest mountian"
+  },
+  {
+    "role": "assistant",
+    "content": "Mount Everest"
+  },
+  {
+    "role": "user",
+    "content": "whats the tallest mountian"
+  },
+  {
+    "role": "user",
+    "content": "what should i name you"
+  },
+  {
+    "role": "assistant",
+    "content": "Mount Everest"
+  },
+  {
+    "role": "user",
+    "content": "what should i name you"
+  },
+  {
+    "role": "user",
+    "content": "are you sure"
+  },
+  {
+    "role": "assistant",
+    "content": "Finn."
+  },
+  {
+    "role": "user",
+    "content": "are you sure"
+  },
+  {
+    "role": "user",
+    "content": "ok finn"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes."
+  },
+  {
+    "role": "user",
+    "content": "ok finn"
+  },
+  {
+    "role": "user",
+    "content": "hey"
+  },
+  {
+    "role": "assistant",
+    "content": "Hey."
+  },
+  {
+    "role": "user",
+    "content": "hey"
+  },
+  {
+    "role": "user",
+    "content": "what is 1 + 1"
+  },
+  {
+    "role": "assistant",
+    "content": "2"
+  },
+  {
+    "role": "user",
+    "content": "what is 1 + 1"
+  },
+  {
+    "role": "user",
+    "content": "what should i name you"
+  },
+  {
+    "role": "assistant",
+    "content": "Finn."
+  },
+  {
+    "role": "user",
+    "content": "what should i name you"
+  },
+  {
+    "role": "user",
+    "content": "you are really set on that name why?"
+  },
+  {
+    "role": "assistant",
+    "content": "I\u2019m programmed to respond."
+  },
+  {
+    "role": "user",
+    "content": "you are really set on that name why?"
+  },
+  {
+    "role": "user",
+    "content": "but why do you like the name flynn so much"
+  },
+  {
+    "role": "assistant",
+    "content": "I'm designed to be helpful and friendly."
+  },
+  {
+    "role": "user",
+    "content": "but why do you like the name flynn so much"
+  },
+  {
+    "role": "user",
+    "content": "yes but why finn so much"
+  },
+  {
+    "role": "assistant",
+    "content": "Because it\u2019s short and easy to say."
+  },
+  {
+    "role": "user",
+    "content": "yes but why finn so much"
+  },
+  {
+    "role": "user",
+    "content": "cool"
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  },
+  {
+    "role": "user",
+    "content": "cool"
+  }
+]

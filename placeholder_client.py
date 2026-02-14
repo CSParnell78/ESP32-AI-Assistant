@@ -23,6 +23,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         reply_bytes = s.recv(65536)
         print(reply_bytes.decode("utf-8", errors="replace"))
         tts = gTTS(reply_bytes.decode("utf-8", errors="replace"))
+        
+        # unload previous music
+        mixer.music.stop()
+        mixer.music.unload()
+
         tts.save('response.mp3')
         mixer.music.load("response.mp3")
         mixer.music.set_volume(0.7)

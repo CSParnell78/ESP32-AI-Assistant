@@ -1,7 +1,8 @@
 import socket
 from ollama import chat
 from ollama import ChatResponse
-
+import json
+import os
 
 # setup tcp server
 HOST = '0.0.0.0'
@@ -27,24 +28,51 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     print(f"disconnected {addr}")
                     break
 
-                # 1. Convert bytes → string
+                # decode command
                 text = data.decode("utf-8").strip()
 
-                # 2. Send string to model
+                
+                FILE = "memory.json"
+                if os.path.exists(FILE):
+                    with open(FILE, "r") as f:
+                        data = json.load(f)
+
+                else:
+                    data = []
+
+                data.append({"role": 'user', "content": text})
+                messages = [
+                        {
+                            "role": "system",
+                            "content": "keep responses ultra short, sentences when you can, the responses should be no bullshit and to the point, always be accurate with information especifally when asked something specific, no emojis",
+                        } 
+                    ] + data
+
+                # send command to ai model
                 response = chat(
                     model='gemma3:1b',
-                    messages=[
-                        {
-                            'role': 'user',
-                            'content': text,
-                        },
-                    ],
+                    messages = messages,
                 )
 
-                # 3. Get model reply
                 reply = response.message.content
 
-                # 4. Convert reply → bytes and send
+                # save command + response to json
+                data.append({
+                    "role": "assistant",
+                    "content": reply,
+                })
+
+                data.append({
+                    "role": "user",
+                    "content": text
+                })
+                MAXI = 50
+                if len(data) > MAXI:
+                    data = data[-MAXI:]
+
+                with open(FILE, "w") as f:
+                    json.dump(data, f, indent=2)
+
                 conn.sendall(reply.encode("utf-8"))
                                 
     
