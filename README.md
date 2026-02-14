@@ -1,6 +1,5 @@
 # ESP 32 AI Assistant
-This is a physical google home like assistant powered by AI
-
+Hi, welcome to this project, this is an esp32 ai powered home assistant with the goal of being a chat bot, controlling home appliances (including lights, tv etc), and controlling music
 ## What is attached
 in this github repo I plan to or already have attached the code and 3d printable files for this project
 
