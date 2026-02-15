@@ -36,7 +36,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 # decode command
                 text = data.decode("utf-8").strip()
 
-                
                 FILE = "memory.json"
                 if os.path.exists(FILE):
                     with open(FILE, "r") as f:
