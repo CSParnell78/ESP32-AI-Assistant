@@ -1,14 +1,12 @@
 import socket
-from gtts import gTTS
-from pygame import mixer
 import os
 import time
+import pyaudio
+from pygame import mixer
 
 mixer.init()
 
-
-
-HOST = "0.0.0.0"
+HOST = "192.168.68.146"
 PORT = 5000
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -19,20 +17,31 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             break
 
         s.sendall(prompt.encode("utf-8"))
-
-        reply_bytes = s.recv(65536)
-        print(reply_bytes.decode("utf-8", errors="replace"))
-        tts = gTTS(reply_bytes.decode("utf-8", errors="replace"))
         
-        # unload previous music
+        # read the header
+        header = s.recv(8)
+
+        file_size = int.from_bytes(header, byteorder="big")
+
+        # loop until we have all data
+        audio_data = b""
+        while len(audio_data) < file_size:
+            remaining = file_size - len(audio_data)
+            audio_data += s.recv(4096 if remaining > 4096 else remaining)
+
+        # stop already playing audio
         mixer.music.stop()
         mixer.music.unload()
 
-        tts.save('response.mp3')
-        mixer.music.load("response.mp3")
-        mixer.music.set_volume(0.7)
-        mixer.music.play()
 
-        while mixer.music.get_busy():
-            time.sleep(0.1)
+        with open('incoming_audio.mp3', 'wb') as f:
+            f.write(audio_data)
+        
+        try:
+            # load and play audio
+            mixer.music.load("incoming_audio.mp3")
+            mixer.music.play()
+
+        except pygame.error as e:
+            print(f"error playing audio: {e}")
 

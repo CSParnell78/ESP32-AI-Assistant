@@ -3,6 +3,11 @@ from ollama import chat
 from ollama import ChatResponse
 import json
 import os
+from gtts import gTTS
+from pygame import mixer
+import pyaudio
+
+mixer.init()
 
 # setup tcp server
 HOST = '0.0.0.0'
@@ -44,7 +49,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 messages = [
                         {
                             "role": "system",
-                            "content": "keep responses ultra short, sentences when you can, the responses should be no bullshit and to the point, always be accurate with information especifally when asked something specific, no emojis",
+                            "content": "You are Finn, a nonchalant and overall chill guy. when responding the structure you use is give a short response and then a short explanation. exceptions to this are if the prompt needs further explaining you can go ahead, or if its something simple like a greeting or something then reply with things like hey, yo, whats up, etc. just explain in paragraphs no specialised characters or text ",
                         } 
                     ] + data
 
@@ -62,17 +67,26 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     "content": reply,
                 })
 
-                data.append({
-                    "role": "user",
-                    "content": text
-                })
-                MAXI = 50
+                MAXI = 10
                 if len(data) > MAXI:
                     data = data[-MAXI:]
 
                 with open(FILE, "w") as f:
                     json.dump(data, f, indent=2)
 
-                conn.sendall(reply.encode("utf-8"))
+                if not reply.strip():
+                    reply = "I didn't catch that."
+
+                tts = gTTS(reply, lang="en")                
+
+                tts.save('response.mp3')
+                
+                with open('response.mp3', 'rb') as f:
+                    audio_bytes = f.read()
+                    conn.sendall(len(audio_bytes).to_bytes(8, byteorder='big'))
+                    conn.sendall(audio_bytes)
+
+
+                # conn.sendall(reply.encode("utf-8"))
                                 
     

@@ -1,194 +1,42 @@
 [
   {
     "role": "user",
-    "content": "hey how is it going"
-  },
-  {
-    "role": "assistant",
-    "content": "Okay."
-  },
-  {
-    "role": "user",
-    "content": "hey how is it going"
-  },
-  {
-    "role": "user",
-    "content": "what is the last thing i said to you"
-  },
-  {
-    "role": "assistant",
-    "content": "You said, \u201chey how is it going\u201d?"
-  },
-  {
-    "role": "user",
-    "content": "what is the last thing i said to you"
-  },
-  {
-    "role": "user",
-    "content": "correct, did you know my favourite food is cheeseburger"
-  },
-  {
-    "role": "assistant",
-    "content": "Yes."
-  },
-  {
-    "role": "user",
-    "content": "correct, did you know my favourite food is cheeseburger"
-  },
-  {
-    "role": "user",
-    "content": "you did? whats my favourite food"
-  },
-  {
-    "role": "assistant",
-    "content": "Pizza."
-  },
-  {
-    "role": "user",
-    "content": "you did? whats my favourite food"
-  },
-  {
-    "role": "user",
-    "content": "ok you got that one wrong lol"
-  },
-  {
-    "role": "assistant",
-    "content": "Cheese."
-  },
-  {
-    "role": "user",
-    "content": "ok you got that one wrong lol"
-  },
-  {
-    "role": "user",
-    "content": "whats the tallest mountian"
-  },
-  {
-    "role": "assistant",
-    "content": "Mount Everest"
-  },
-  {
-    "role": "user",
-    "content": "whats the tallest mountian"
-  },
-  {
-    "role": "user",
-    "content": "what should i name you"
-  },
-  {
-    "role": "assistant",
-    "content": "Mount Everest"
-  },
-  {
-    "role": "user",
-    "content": "what should i name you"
-  },
-  {
-    "role": "user",
-    "content": "are you sure"
-  },
-  {
-    "role": "assistant",
-    "content": "Finn."
-  },
-  {
-    "role": "user",
-    "content": "are you sure"
-  },
-  {
-    "role": "user",
-    "content": "ok finn"
-  },
-  {
-    "role": "assistant",
-    "content": "Yes."
-  },
-  {
-    "role": "user",
-    "content": "ok finn"
-  },
-  {
-    "role": "user",
     "content": "hey"
   },
   {
     "role": "assistant",
-    "content": "Hey."
+    "content": "Hey!"
   },
   {
     "role": "user",
-    "content": "hey"
-  },
-  {
-    "role": "user",
-    "content": "what is 1 + 1"
+    "content": "explain to me quantam physics like im 5"
   },
   {
     "role": "assistant",
-    "content": "2"
+    "content": "Okay, imagine everything is made of tiny, tiny LEGOs, so small you can\u2019t even see them! Quantum physics is about how those tiny LEGOs act \u2013 sometimes they act like marbles, sometimes like waves, and sometimes they act like\u2026 well, *everything*! It\u2019s a little weird because they don\u2019t always do what we expect \u2013 like, they can be in two places at once until we look!"
   },
   {
     "role": "user",
-    "content": "what is 1 + 1"
-  },
-  {
-    "role": "user",
-    "content": "what should i name you"
+    "content": "woah thats cool"
   },
   {
     "role": "assistant",
-    "content": "Finn."
+    "content": "Yeah, kinda."
   },
   {
     "role": "user",
-    "content": "what should i name you"
-  },
-  {
-    "role": "user",
-    "content": "you are really set on that name why?"
+    "content": "what do you mean \"kinda\"??"
   },
   {
     "role": "assistant",
-    "content": "I\u2019m programmed to respond."
+    "content": "Okay, okay, don\u2019t freak out! It just means it\u2019s a *little* complicated. It\u2019s like, things aren't always super simple, you know?"
   },
   {
     "role": "user",
-    "content": "you are really set on that name why?"
-  },
-  {
-    "role": "user",
-    "content": "but why do you like the name flynn so much"
+    "content": "i get it"
   },
   {
     "role": "assistant",
-    "content": "I'm designed to be helpful and friendly."
-  },
-  {
-    "role": "user",
-    "content": "but why do you like the name flynn so much"
-  },
-  {
-    "role": "user",
-    "content": "yes but why finn so much"
-  },
-  {
-    "role": "assistant",
-    "content": "Because it\u2019s short and easy to say."
-  },
-  {
-    "role": "user",
-    "content": "yes but why finn so much"
-  },
-  {
-    "role": "user",
-    "content": "cool"
-  },
-  {
-    "role": "assistant",
-    "content": ""
-  },
-  {
-    "role": "user",
-    "content": "cool"
+    "content": "Cool!"
   }
 ]
