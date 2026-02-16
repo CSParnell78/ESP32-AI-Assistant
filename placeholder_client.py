@@ -4,19 +4,38 @@ import time
 import pyaudio
 from pygame import mixer
 
+import speech_recognition as sr
+
 mixer.init()
 
 HOST = "192.168.68.146"
 PORT = 5000
 
+r = sr.Recognizer()
+
+os.system("cls")
+print("Welcome to This chabot demo.")
+print("Speak something out loud for a reply")
+print("Enjoy!")
+
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     while True:
-        prompt = input(">> ").strip()
-        if prompt.lower() in ("exit", "quit"):
-            break
+        # prompt = input(">> ").strip()
+        # if prompt.lower() in ("exit", "quit"):
+        #     break
 
-        s.sendall(prompt.encode("utf-8"))
+        with sr.Microphone() as source:
+            r.adjust_for_ambient_noise(source, duration=0.5)
+            audio = r.listen(source)
+        try:
+            text = r.recognize_google(audio)
+        except sr.UnknownValueError:
+            print("Sorry, I could not understand the audio.")
+        except sr.RequestError as e:
+            print(f"Could not request results from Google Speech Recognition service; {e}")
+
+        s.sendall(text.encode("utf-8"))
         
         # read the header
         header = s.recv(8)
