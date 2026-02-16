@@ -13,6 +13,8 @@ PORT = 5000
 
 r = sr.Recognizer()
 
+recognize_speech = True
+
 os.system("cls")
 print("Welcome to This chabot demo.")
 print("Speak something out loud for a reply")
@@ -29,7 +31,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             r.adjust_for_ambient_noise(source, duration=0.5)
             audio = r.listen(source)
         try:
-            text = r.recognize_google(audio)
+            if recognize_speech == True:
+                text = r.recognize_google(audio)
         except sr.UnknownValueError:
             print("Sorry, I could not understand the audio.")
         except sr.RequestError as e:
@@ -60,6 +63,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # load and play audio
             mixer.music.load("incoming_audio.mp3")
             mixer.music.play()
+            # stop from recognizing speech
+            recognize_speech = False
+            # Wait until playback finishes
+            while mixer.music.get_busy():
+                time.sleep(0.1)
+            # start recognizing speech
+            recognize_speech = True
 
         except pygame.error as e:
             print(f"error playing audio: {e}")
