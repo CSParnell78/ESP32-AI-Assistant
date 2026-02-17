@@ -16,9 +16,13 @@ r = sr.Recognizer()
 recognize_speech = True
 
 os.system("cls")
-print("Welcome to This chabot demo.")
-print("Speak something out loud for a reply")
-print("Enjoy!")
+print("""
+████████████████████████████████████████████████
+█▄─█▀▀▀█─▄█▄─▄▄─█▄─▄███─▄▄▄─█─▄▄─█▄─▀█▀─▄█▄─▄▄─█
+██─█─█─█─███─▄█▀██─██▀█─███▀█─██─██─█▄█─███─▄█▀█
+▀▀▄▄▄▀▄▄▄▀▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▀▄▄▄▀▄▄▄▀▄▄▄▄▄▀""")
+print("Just say something out loud to start")
+print("More information here: https://github.com/CSParnell78/ESP32-AI-Assistant/tree/main")
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
@@ -35,8 +39,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 text = r.recognize_google(audio)
         except sr.UnknownValueError:
             print("Sorry, I could not understand the audio.")
+            continue
         except sr.RequestError as e:
             print(f"Could not request results from Google Speech Recognition service; {e}")
+            continue
 
         s.sendall(text.encode("utf-8"))
         
@@ -55,13 +61,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         mixer.music.stop()
         mixer.music.unload()
 
-
-        with open('incoming_audio.mp3', 'wb') as f:
+        with open('incoming_audio.wav', 'wb') as f:
             f.write(audio_data)
         
         try:
             # load and play audio
-            mixer.music.load("incoming_audio.mp3")
+            mixer.music.load("incoming_audio.wav")
             mixer.music.play()
             # stop from recognizing speech
             recognize_speech = False
@@ -71,6 +76,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # start recognizing speech
             recognize_speech = True
 
-        except pygame.error as e:
+        except mixer.error as e:
             print(f"error playing audio: {e}")
 

@@ -3,11 +3,12 @@ from ollama import chat
 from ollama import ChatResponse
 import json
 import os
-from gtts import gTTS
+import pyttsx3
 from pygame import mixer
 import pyaudio
 
 mixer.init()
+engine = pyttsx3.init()
 
 # setup tcp server
 HOST = '0.0.0.0'
@@ -76,11 +77,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if not reply.strip():
                     reply = "I didn't catch that."
 
-                tts = gTTS(reply, lang="en")                
-
-                tts.save('response.mp3')
+                # engine = pyttsx3.init()
+                engine.save_to_file(reply, 'response.wav')
+                engine.runAndWait()
                 
-                with open('response.mp3', 'rb') as f:
+                with open('response.wav', 'rb') as f:
                     audio_bytes = f.read()
                     conn.sendall(len(audio_bytes).to_bytes(8, byteorder='big'))
                     conn.sendall(audio_bytes)
