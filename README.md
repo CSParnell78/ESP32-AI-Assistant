@@ -5,8 +5,11 @@ This is a physical google home like assistant powered by AI
 in this github repo I plan to or already have attached the code and 3d printable files for this project
 
 Check out my project on flavortown: https://flavortown.hackclub.com/projects/12608
+
 I also update on ark-stem: https://ark-stem.com/u/jaxonparnell
+
 You can find the onshape project here: https://cad.onshape.com/documents/f4040fdb48347249e62d75fd/w/0fc8f40c14b3cf69080ab0f9/e/928556854dc900e7f6e9bcaf
+
 I plan to post the printable files here on makerworld:https://makerworld.com/en/@cosmicmodels
 
 ## Electronics
