@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "role": "user",
+    "content": "hello"
+  },
+  {
+    "role": "assistant",
+    "content": "Hey."
+  },
+  {
+    "role": "user",
+    "content": "how is your"
+  },
+  {
+    "role": "assistant",
+    "content": "Don\u2019t ask."
+  },
+  {
+    "role": "user",
+    "content": "hello"
+  },
+  {
+    "role": "assistant",
+    "content": "Yeah, hello."
+  },
+  {
+    "role": "user",
+    "content": "how is your day"
+  },
+  {
+    "role": "assistant",
+    "content": "Fine, really."
+  },
+  {
+    "role": "user",
+    "content": "can you explain to me quantum physics like I am a 5-year-old"
+  },
+  {
+    "role": "assistant",
+    "content": "Okay, imagine tiny, tiny LEGO bricks, way smaller than you can even see. These bricks can be in lots of places at once, like they\u2019re hiding! It\u2019s kinda confusing, but it\u2019s how everything works!"
+  }
+]

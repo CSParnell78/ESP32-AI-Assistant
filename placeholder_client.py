@@ -4,6 +4,7 @@ import time
 import pyaudio
 from pygame import mixer
 
+import io
 import speech_recognition as sr
 
 mixer.init()
@@ -44,18 +45,31 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(f"Could not request results from Google Speech Recognition service; {e}")
             continue
 
+        print(f"Sending text: {text}")
         s.sendall(text.encode("utf-8"))
         
         # read the header
+        print("Waiting for response header...")
         header = s.recv(8)
+        if not header:
+            print("Connection closed by server.")
+            break
 
         file_size = int.from_bytes(header, byteorder="big")
+        print(f"Expecting file size: {file_size} bytes")
 
         # loop until we have all data
         audio_data = b""
         while len(audio_data) < file_size:
             remaining = file_size - len(audio_data)
-            audio_data += s.recv(4096 if remaining > 4096 else remaining)
+            chunk = s.recv(4096 if remaining > 4096 else remaining)
+            if not chunk:
+                print("Connection closed unexpectedly while downloading audio.")
+                break
+            audio_data += chunk
+            # print(f"Received {len(audio_data)}/{file_size} bytes", end='\r')
+        
+        print(f"\nDownload complete. Total received: {len(audio_data)} bytes")
 
         # stop already playing audio
         mixer.music.stop()
@@ -65,9 +79,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             f.write(audio_data)
         
         try:
-            # load and play audio
-            mixer.music.load("incoming_audio.wav")
+            # load and play audio from memory to avoid file locking
+            audio_stream = io.BytesIO(audio_data)
+            mixer.music.load(audio_stream)
             mixer.music.play()
+            
             # stop from recognizing speech
             recognize_speech = False
             # Wait until playback finishes
@@ -78,4 +94,3 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         except mixer.error as e:
             print(f"error playing audio: {e}")
-
