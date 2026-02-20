@@ -6,7 +6,7 @@ in this github repo I plan to or already have attached the code and 3d printable
 
 I also update on [ark-stem](https://ark-stem.com/projects/93e3350e-60b0-4aa6-ae89-479d2bbe4788?tab=details)
 
-I plan to post the printable files [here](https://makerworld.com/en/@cosmicmodels) on makerworld:
+I plan to post the printable files [here](https://makerworld.com/en/@cosmicmodels) on makerworld
 
 ## Electronics
 You will need a variety of electronics for this build, I will list the electronics that I have personally used.
