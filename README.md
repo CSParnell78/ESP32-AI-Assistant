@@ -4,11 +4,11 @@ This is a physical google home like assistant powered by AI
 ## What is attached
 in this github repo I plan to or already have attached the code and 3d printable files for this project
 
-I also update on ark-stem: [https://ark-stem.com/u/jaxonparnell](https://ark-stem.com/projects/93e3350e-60b0-4aa6-ae89-479d2bbe4788?tab=details)
+I also update on [ark-stem](https://ark-stem.com/projects/93e3350e-60b0-4aa6-ae89-479d2bbe4788?tab=details)
 
-You can find the onshape project here: https://cad.onshape.com/documents/f4040fdb48347249e62d75fd/w/0fc8f40c14b3cf69080ab0f9/e/928556854dc900e7f6e9bcaf
+You can find the onshape project [here](https://cad.onshape.com/documents/f4040fdb48347249e62d75fd/w/0fc8f40c14b3cf69080ab0f9/e/928556854dc900e7f6e9bcaf)
 
-I plan to post the printable files here on makerworld:https://makerworld.com/en/@cosmicmodels
+I plan to post the printable files [here](https://makerworld.com/en/@cosmicmodels) on makerworld:
 
 ## Electronics
 You will need a variety of electronics for this build, I will list the electronics that I have personally used.
